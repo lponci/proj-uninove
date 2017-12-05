@@ -47,7 +47,7 @@ public class CardapioController {
 		List<Categoria> categoriasAtivas = categoriaService.buscarCategoriasAtivas();
 
 		Map<Long, String> mapa = new HashMap<Long, String>();
-		mapa.put(0L, "selecione");
+		mapa.put(0L, "Selecione");
 		for (Categoria categoria : categoriasAtivas) {
 
 			mapa.put(categoria.getId(), categoria.getNome());
@@ -61,7 +61,7 @@ public class CardapioController {
 		List<String> lista = new ArrayList<String>();
 		lista.add("Selecione");
 		lista.add("Ativo");
-		lista.add("Não-Ativo");
+		lista.add("Inativo");
 
 		return lista;
 	}

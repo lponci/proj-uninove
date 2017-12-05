@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Gerenciar restaurantes</title>
+
 <link href="<c:url value ='/css/bootstrap.min.css'/>" rel="stylesheet"
 	type="text/css" />
 <script src="<c:url value ='/js/bootstrap.min.js'/>" type="text/javascript"></script>
@@ -18,8 +19,10 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="col-md-3">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Restaurante Web</a>
+      <a class="navbar-brand" href="*/">Restaurante Web</a>
+    </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

@@ -64,7 +64,7 @@ public class CategoriaController {
 		List<String> lista = new ArrayList<String>();
 		lista.add("Selecione");
 		lista.add("Ativo");
-		lista.add("Não-Ativo");
+		lista.add("Inativo");
 
 		return lista;
 	}

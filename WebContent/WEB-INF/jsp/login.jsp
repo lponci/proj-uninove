@@ -36,14 +36,14 @@
 						<div style="margin-bottom: 25px" class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span>
-							<form:input cssStyle="width:250px" maxlength="30" path="login"
+							<form:input cssStyle="width:fill" maxlength="30" path="login"
 								size="30" class="form-control" />
 						</div>
 
 						<div style="margin-bottom: 25px" class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-lock"></i></span>
-							<form:input cssStyle="width:250px" maxlength="30" path="senha"
+							<form:input cssStyle="width:fill" maxlength="30" path="senha"
 								type="password" size="30" class="form-control" />
 						</div>
 
@@ -52,7 +52,6 @@
 								<input type="submit" class="btn btn-primary" value="Login" />
 							</div>
 						</div>
-
 
 					</form:form>
 

@@ -159,7 +159,7 @@ public class PedidoController {
 	public Map<Long, String> selectMesas() {
 		List<Mesa> mesas = mesaService.listar();
 		Map<Long, String> mapa = new HashMap<Long, String>();
-		mapa.put(0L, "selecione");
+		mapa.put(0L, "Selecione");
 		for (Mesa mesa : mesas) {
 
 			mapa.put(mesa.getId(), mesa.getNumero());
@@ -173,9 +173,9 @@ public class PedidoController {
 
 		List<String> status = new ArrayList<String>();
 
-		status.add("pendente");
-		status.add("atendido");
-		status.add("cancelado");
+		status.add("Pendente");
+		status.add("Atendido");
+		status.add("Cancelado");
 
 		return status;
 	}
@@ -184,7 +184,7 @@ public class PedidoController {
 	public Map<Long, String> selectCardapio() {
 		List<Cardapio> itens = cardapioService.listar();
 		Map<Long, String> mapa = new HashMap<Long, String>();
-		mapa.put(0L, "selecione");
+		mapa.put(0L, "Selecione");
 		for (Cardapio cardapio : itens) {
 
 			mapa.put(cardapio.getId(), cardapio.getNome());

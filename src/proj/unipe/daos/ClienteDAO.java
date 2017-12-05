@@ -25,5 +25,5 @@ public class ClienteDAO extends AbstractDAO<Cliente> {
 		query.setParameter("nome", "%"+filtro+"%");
 		return query.getResultList();
 	}
-
+	
 }

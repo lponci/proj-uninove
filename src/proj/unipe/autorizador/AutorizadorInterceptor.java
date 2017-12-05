@@ -23,5 +23,4 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		response.sendRedirect("http://localhost:8080/Restaurante/");
 		return false;
 	}
-
 }

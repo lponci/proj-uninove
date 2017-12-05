@@ -2045,7 +2045,9 @@ pre code {
 		width: 16.66666667%
 	}
 	.col-md-1 {
-		width: 8.33333333%
+		width: 8.33333333%;
+		padding-left: 35px;
+    padding-top: 8px   
 	}
 	.col-md-pull-12 {
 		right: 100%

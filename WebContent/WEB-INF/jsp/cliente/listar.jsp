@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</form:form>
-	<br/>
+	<br>
 	
 	<table class="table table-bordered">
 		<tr>
@@ -34,17 +34,17 @@
 		<c:forEach items="${clientes}" var="cli">
 			<tr>
 	
-				<td><input type="radio" name="radioButton" value="${cli.id} checked"/></td>
+				<td><input type="radio" name="radioButton" value="${cli.id}"/></td>
 				<td>${cli.nome}</td>
 				<td>${cli.endereco.rua}</td>
 				<td>${cli.endereco.cep}</td>
 				<td>${cli.endereco.bairro}</td>
-				<c:url var="url" value="/cliente/${input}" />
+					<c:url var="url" value="${cli.id}"/>
 			</tr>
 		</c:forEach>
 	</table>
-	
 	<a href="/Restaurante/cliente/novo" class="btn btn-primary">Novo</a>
 	<a href="${url}/updateForm" class="btn btn-primary">Atualizar</a>
 	<a href="${url}/remove" class="btn btn-danger">Deletar</a>
+	
 </div>
