@@ -15,6 +15,7 @@
 <body>
 	<c:url var="url" value="/login" />
 	<div class="container-fluid">
+	
 		<div id="loginbox" style="margin-top: 50px;"
 			class="mainbox col-md-3 col-md-offset-4 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">

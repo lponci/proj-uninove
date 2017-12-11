@@ -18,12 +18,7 @@
 		<form:form action="${url}" method="get" modelAttribute="reserva">
 		
 		    <form:hidden cssStyle="width:250px"  path="id" size="30"  />
-			<div class="row">
-				<div class="form-group col-md-1">
-					<label for="nome">Mesa:</label>
-					<form:select items="${selectMesas}"  length="30" path="mesa.id" />
-				</div>
-			</div>	
+			
 			<div class="row">
 				<div class="form-group col-md-1">
 					<label for="nome">Nome do Responsável:</label>
@@ -34,22 +29,26 @@
 			<div class="row">	
 				<div class="form-group col-md-2">
 					<label for="nome">Número de Pessoas:</label>
-					<form:input cssStyle="width:250px" maxlength="30" path="num_Pessoas" size="30" class="form-control"/>
+					<form:input cssStyle="width:75px" maxlength="30" path="num_Pessoas" size="30" class="form-control"/>
 					<form:errors path="num_Pessoas" />
 				</div>
+					<div class="row">
+				<div class="form-group col-md-1">
+					<label for="nome">Mesa:</label>
+					<form:select cssStyle="width:110px" items="${selectMesas}"  length="30" path="mesa.id" class="form-control"/>
+				</div>
+			</div>
 			</div>
 			
 			<div class="row">	
 				<div class="form-group col-md-2">
 					<label for="nome">Data Inicial:</label>
-					<form:input cssStyle="width:250px" maxlength="30" path="dataInicial" size="30" class="form-control"/>
+					<form:input cssStyle="width:150px" maxlength="30" path="dataInicial" size="30" class="form-control"/>
 				</div>
-			</div>
 			
-			<div class="row">	
 				<div class="form-group col-md-2">
 					<label for="nome">Data Final:</label>
-					<form:input cssStyle="width:250px" maxlength="30" path="dataFinal" size="30" class="form-control"/>
+					<form:input cssStyle="width:150px" maxlength="30" path="dataFinal" size="30" class="form-control"/>
 				</div>
 			</div>
 				
@@ -57,7 +56,8 @@
 		   <div class="row">
 				<div class="form-group col-md-4">
 					<label for="nome"></label>
-					<input type="submit" value="enviar" class="btn btn-primary">
+					<input type="submit" value="Enviar" class="btn btn-primary">
+					<a href="/Restaurante/reserva/listar" class="btn btn-primary">Voltar</a>
 				</div>
 		   </div>	
 		   

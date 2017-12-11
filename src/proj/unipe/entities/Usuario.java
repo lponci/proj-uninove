@@ -10,6 +10,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @SequenceGenerator(sequenceName = "usuario_seq", name = "usuario_id", allocationSize = 1)
@@ -19,14 +22,14 @@ public class Usuario extends AbstractEntity{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="usuario_id")
 	private Long id;
 	
-	@NotNull(message="Campo obrigatório")
+	@NotBlank(message = "Campo obrigatório")
 	@Column( length = 20)
 	private String login;
 	
 	@Column(length = 20)
 	private String senha;
 	
-	@NotNull(message="Campo obrigatório")
+	@NotBlank(message = "Campo obrigatório")
 	@Column(length = 20)
 	private String nome;
 	

@@ -117,7 +117,7 @@ public class CategoriaController {
 	@RequestMapping(method = RequestMethod.GET, value = { "/{id}/desativar" })
 	public String desativar(@PathVariable("id") Long id, ModelMap map) {
 		Categoria categoria = categoriaService.buscarPorId(id);
-		categoria.setStatus("Não-Ativo");
+		categoria.setStatus("Inativo");
 
 		try {
 			categoriaService.atualizar(categoria);

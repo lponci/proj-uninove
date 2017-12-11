@@ -7,7 +7,7 @@
 <c:import url="${request.contextPath}/menu" />
 
 <div class="container">
-	
+
 	<c:url var="url" value="/categoria/filtrar" />
 	<form:form action="${url}" method="get" modelAttribute="filtro">
 		<div class="row">
@@ -22,33 +22,107 @@
 		</div>
 
 	</form:form>
-	
-	
-	<c:url var="url" value="/categoria/novo" />
-	<a href="${url}" class="btn btn-primary">Novo</a> <br /> <br />
-	<table class="table table-bordered">
+	<br />
+	<table id="tname" class="table table-bordered">
 		<tr>
-			<td>Id</td>
+			<td></td>
 			<td>Nome</td>
 			<td>Status</td>
-			<td>Ações</td>
 		</tr>
 
 		<c:forEach items="${categorias}" var="categoria">
 			<tr>
-				<td>${categoria.id}</td>
+				<td width="10"><input type="radio" name="radioButton" value="${categoria.id}" /></td>
 				<td>${categoria.nome}</td>
-				<td>${categoria.status}</td>
-				<c:url var="url" value="/categoria/${categoria.id}" />
-				<td><a href="${url}/updateForm" class="btn btn-primary">atualizar</a>
-					<a href="${url}/remove" class="btn btn-danger">deletar</a>
-					<c:if test="${categoria.status == 'Não-Ativo'}">
-  						<a href="${url}/ativar" class="btn btn-primary">Ativar</a>
-					</c:if>
-					<c:if test="${categoria.status == 'Ativo'}">
-  						<a href="${url}/desativar" class="btn btn-primary">Desativar</a>
-					</c:if>
+				<td id="catStatus">${categoria.status}</td>
+
 			</tr>
 		</c:forEach>
 	</table>
+	<c:url var="url" value="/categoria/novo" />
+	<a href="${url}" class="btn btn-primary">Novo</a>
+	<script>
+		function findSelection(field) {
+			var test = document.getElementsByName(field);
+			var sizes = test.length;
+
+			for (i = 0; i < sizes; i++) {
+				if (test[i].checked == true) {
+					//alert(test[i].value);
+					return test[i].value;
+				}
+			}
+		}
+
+		function removeForm() {
+			swal({
+				title : "Voce irá deletar permanetemente!",
+				text : "Deseja deletar?",
+				icon : "warning",
+				buttons : true,
+				dangerMode: true,
+				buttons : ["Não","Sim"]
+			})
+			.then((willDelete) =>{
+				if (willDelete){
+					var rb = findSelection("radioButton");
+					if (typeof rb !== 'undefined') {
+							var updateUrl = "/Restaurante/categoria/" + rb + "/remove";
+							window.location.href = updateUrl;
+							//alert(updateUrl);	
+							return false
+						}
+					}
+				});
+			}
+
+		function updateForm() {
+
+			var rb = findSelection("radioButton");
+			if (typeof rb !== 'undefined') {
+				var updateUrl = "/Restaurante/categoria/" + rb + "/updateForm";
+				window.location.href = updateUrl;
+				//alert(updateUrl);	
+				return false;
+			}
+
+		}
+		
+		function desativarReg() {
+			var rb = findSelection("radioButton");
+			alert(rb);
+
+			var status = document.getElementById("catStatus").innerText;
+			if (status === 'Ativo') {
+				var updateUrl = "/Restaurante/categoria/" + rb + "/desativar";
+				window.location.href = updateUrl;
+				alert("URL 1: " + updateUrl);
+				return false;
+			} else{
+				alert("Registro inativo!");
+				return false;
+			}
+		}
+		function ativarReg() {
+			var t = document.getElementById("tname");
+			var trs = t.getElementsByTagName("tr");
+			var tds = null;
+
+			for (var i=0; i<trs.length; i++)
+			{
+			    tds = trs[i].getElementsByTagName("td");
+			    for (var n=0; n<trs.length;n++)
+			    {
+			        tds[n].onclick=function() { alert(this.id); }
+			    }
+			}
+		}
+	</script>
+
+	<c:url var="url" value="/categoria/${categoria.id}" />
+	<a href="" onclick="return updateForm()" class="btn btn-primary">Atualizar</a>
+	<button onclick="return removeForm()" class="btn btn-danger">Deletar</button>
+	<a href="" onclick="return ativarReg()" class="btn btn-primary">Ativar</a>
+	<a href="" onclick="return desativarReg()" class="btn btn-primary">Desativar</a>
+	
 </div>

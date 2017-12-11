@@ -34,7 +34,7 @@
 		<c:forEach items="${clientes}" var="cli">
 			<tr>
 	
-				<td><input type="radio" name="radioButton" value="${cli.id}"/></td>
+				<td width="10"><input type="radio" name="radioButton" value="${cli.id}"/></td>
 				<td>${cli.nome}</td>
 				<td>${cli.endereco.rua}</td>
 				<td>${cli.endereco.cep}</td>
@@ -43,8 +43,55 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<script type="text/javascript">
+		function findSelection(field) {
+			var test = document.getElementsByName(field);
+			var sizes = test.length;
+
+			for (i = 0; i < sizes; i++) {
+				if (test[i].checked == true) {
+					//alert(test[i].value);
+					return test[i].value;
+				}
+			}
+		}
+
+		function removeForm() {
+			swal({
+				title : "Voce irá deletar permanetemente!",
+				text : "Deseja deletar?",
+				icon : "warning",
+				buttons : true,
+				dangerMode: true,
+				buttons : ["Não","Sim"]
+			})
+			.then((willDelete) =>{
+				if (willDelete){
+					var rb = findSelection("radioButton");
+					if (typeof rb !== 'undefined') {
+							var updateUrl = "/Restaurante/cliente/" + rb + "/remove";
+							window.location.href = updateUrl;
+							//alert(updateUrl);	
+							return false
+						}
+					}
+				});
+			}
+
+		function updateForm() {
+
+			var rb = findSelection("radioButton");
+			if (typeof rb !== 'undefined') {
+				var updateUrl = "/Restaurante/cliente/" + rb + "/updateForm";
+				window.location.href = updateUrl;
+				//alert(updateUrl);	
+				return false;
+			}
+
+		}
+	</script>
 	<a href="/Restaurante/cliente/novo" class="btn btn-primary">Novo</a>
-	<a href="${url}/updateForm" class="btn btn-primary">Atualizar</a>
-	<a href="${url}/remove" class="btn btn-danger">Deletar</a>
-	
+	<a href="" onclick="return updateForm()" class="btn btn-primary">Atualizar</a>
+	<button onclick="return removeForm()" class="btn btn-danger">Deletar</button>
+
 </div>

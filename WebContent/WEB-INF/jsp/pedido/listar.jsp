@@ -24,30 +24,55 @@
 	<br>
 	<table class="table table-bordered">
 		<tr>
+		<td>
 			<td>Número</td>
 			<td>Data</td>
 			<td>Total</td>
 			<td>Status</td>
 			<td>Tipo</td>
-			<td>Ações</td>
 
 		</tr>
 
 		<c:forEach items="${pedidos}" var="pedido">
 			<tr>
+			<td width="10px"><input type="radio" name="radioButton" value="${pedido.id}"/></td>
 				<td>${pedido.id}</td>
 				<td>${pedido.data}</td>
 				<td>${pedido.getTotal()}</td>
 				<td>${pedido.status}</td>
 				<td>Tradicional</td>
 
-				<c:url var="url" value="/pedido/${pedido.id}" />
-				<td><a href="${url}/detalharPedido" class="btn btn-primary">Detalhar</a>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<c:url var="url" value="/pedido/novo" />
-	<a href="${url}" class="btn btn-primary">Novo</a> <br /> <br />
+	<a href="${url}" class="btn btn-primary">Novo</a>
 
+	<a href="" onclick="return detailForm()"  class="btn btn-primary">Detalhar</a>
+		<script>
+		function findSelection(field) {
+			var test = document.getElementsByName(field);
+			var sizes = test.length;
+
+			for (i = 0; i < sizes; i++) {
+				if (test[i].checked == true) {
+					//alert(test[i].value);
+					return test[i].value;
+				}
+			}
+		}
+
+		function detailForm() {
+
+			var rb = findSelection("radioButton");
+			if (typeof rb !== 'undefined') {
+				var updateUrl = "/Restaurante/pedido/" + rb + "/detalharPedido";
+				window.location.href = updateUrl;
+				//alert(updateUrl);	
+				return false
+			}
+		}
+	</script>
+	
 </div>

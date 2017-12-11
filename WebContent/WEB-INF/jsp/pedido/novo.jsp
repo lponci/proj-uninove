@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="form-group col-md-2">
 						<label for="nome">Status:</label>
-						<form:select items="${selectStatus}" length="30"
+						<form:select class="form-control" items="${selectStatus}" length="30"
 							path="tradicional.status" />
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 				<div class="row">
 					<div class="form-group col-md-2">
 						<label for="nome">Mesa:</label>
-						<form:select items="${selectMesas}" length="30"
+						<form:select class="form-control" items="${selectMesas}" length="30"
 							path="tradicional.mesa.id" />
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 				<div class="row">
 					<div class="form-group col-md-3">
 						<label for="nome">Cardapio:</label>
-						<form:select items="${selectCardapio}" length="30" path="cardapio.id" />
+						<form:select class="form-control"  items="${selectCardapio}" length="30" path="cardapio.id" />
 					</div>
 				</div>
 				<div class="row">
@@ -103,6 +103,7 @@
 
 
 			</form:form>
+						<a href="/Restaurante/pedido/listar" class="btn btn-primary">Voltar</a>
 
 	
 

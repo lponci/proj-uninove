@@ -88,8 +88,8 @@
 		   <div class="row">
 				<div class="form-group col-md-2">
 					<label for="nome"></label>
-					<input type="submit" value="enviar" class="btn btn-primary">
-				 <a href="http://localhost:8080/Restaurante/cliente/listar" class="btn btn-primary">Voltar</a>
+					<input type="submit" value="Confirmar" class="btn btn-primary">
+				 <a href="/Restaurante/cliente/listar" class="btn btn-primary">Voltar</a>
 				</div>
 		   </div>	
 		   

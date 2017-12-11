@@ -21,31 +21,78 @@
 		</div>
 
 	</form:form>
-	
-	
-	<c:url var="url" value="/funcionario/novo" />
-	<a href="${url}" class="btn btn-primary">Novo</a> <br /> <br />
+	<br />
 	<table class="table table-bordered">
 		<tr>
-			<td>id</td>
+			<td></td>
 			<td>Nome</td>
 			<td>Cargo</td>
 			<td>CPF</td>
 			<td>Salário</td>
-			<td>Ações</td>
 		</tr>
 
 		<c:forEach items="${funcionarios}" var="fun">
 			<tr>
-				<td>${fun.id}</td>
+				<td width="10px"><input type="radio" name="radioButton" value="${fun.id}"/></td>
 				<td>${fun.nome}</td>
 				<td>${fun.cargo}</td>
 				<td>${fun.cpf}</td>
 				<td>${fun.salario}</td>
-				<c:url var="url" value="/funcionario/${fun.id}" />
-				<td><a href="${url}/editar" class="btn btn-primary">Editar</a>
-					<a href="${url}/remover" class="btn btn-danger">Deletar</a></td>
+			
 			</tr>
 		</c:forEach>
 	</table>
+		<c:url var="url" value="/funcionario/novo" />
+	<a href="${url}" class="btn btn-primary">Novo</a>
+	<a href="" onclick="return updateForm()" class="btn btn-primary">Editar</a>
+	<button onclick="return removeForm()" class="btn btn-danger">Deletar</button>
+					
+					<script>
+		function findSelection(field) {
+			var test = document.getElementsByName(field);
+			var sizes = test.length;
+
+			for (i = 0; i < sizes; i++) {
+				if (test[i].checked == true) {
+					//alert(test[i].value);
+					return test[i].value;
+				}
+			}
+		}
+
+		function removeForm() {
+
+			swal({
+				title : "Voce irá deletar permanetemente!",
+				text : "Deseja deletar?",
+				icon : "warning",
+				buttons : true,
+				dangerMode: true,
+				buttons : ["Não","Sim"]
+			})
+			.then((willDelete) =>{
+				if (willDelete){
+					var rb = findSelection("radioButton");
+					if (typeof rb !== 'undefined') {
+							var updateUrl = "/Restaurante/funcionario/" + rb + "/remove";
+							window.location.href = updateUrl;
+							//alert(updateUrl);	
+							return false
+						}
+					}
+				});
+			}
+
+		function updateForm() {
+
+			var rb = findSelection("radioButton");
+			if (typeof rb !== 'undefined') {
+				var updateUrl = "/Restaurante/funcionario/" + rb + "/editar";
+				window.location.href = updateUrl;
+				//alert(updateUrl);	
+				return false;
+			}
+
+		}
+	</script>
 </div>

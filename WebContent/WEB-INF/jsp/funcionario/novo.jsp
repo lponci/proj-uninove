@@ -50,11 +50,12 @@
 	<label for="email">Salário:</label>
 	<form:input cssStyle="width:250px" maxlength="30" path="salario"
 		size="30" class="form-control" />	
-		   
+		   <br>
 		   <div class="row">
 				<div class="form-group col-md-4">
 					<label for="nome"></label>
-					<input type="submit" value="enviar" class="btn btn-primary">
+					<input type="submit" value="Enviar" class="btn btn-primary">
+					<a href="/Restaurante/funcionario/listar" class="btn btn-primary">Voltar</a>
 				</div>
 		   </div>	
 		   

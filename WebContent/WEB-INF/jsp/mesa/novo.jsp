@@ -19,15 +19,14 @@
 		
 		    <form:hidden cssStyle="width:250px"  path="id" size="30"  />
 			<div class="row">
-				<div class="form-group col-md-1">
+				<div class="form-group col-md-2">
 					<label for="nome">De Reserva:</label>
-					<form:select items="${selectDeReserva}"  length="30" path="deReserva" />
-				</div>
-			</div>	
-			<div class="row">
-				<div class="form-group col-md-1">
+					<form:select cssStyle="width:75px" items="${selectDeReserva}"  length="30" path="deReserva" class="form-control"/>
+				</div> 
+			
+				<div class="form-group col-md-2">
 					<label for="nome">Número:</label>
-					<form:input cssStyle="width:250px" maxlength="30" path="numero" size="30" class="form-control" />
+					<form:input cssStyle="width:75px" maxlength="30" path="numero" size="30" class="form-control" />
 					<form:errors path="numero" />
 				</div>
 			</div>	
@@ -42,7 +41,8 @@
 		   <div class="row">
 				<div class="form-group col-md-4">
 					<label for="nome"></label>
-					<input type="submit" value="enviar" class="btn btn-primary">
+					<input type="submit" value="Enviar" class="btn btn-primary">
+					<a href="/Restaurante/mesa/listar" class="btn btn-primary">Voltar</a>
 				</div>
 		   </div>	
 		   

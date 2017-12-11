@@ -18,7 +18,7 @@
 		
 		    <form:hidden cssStyle="width:250px" maxlength="30" path="id" size="30" class="form-control" />
 			<div class="row">
-				<div class="form-group col-md-1">
+				<div class="form-group col-md-2">
 					<label for="nome">Nome:</label>
 					<form:input cssStyle="width:250px" maxlength="30" path="nome" size="30" class="form-control" />
 					<form:errors path="nome" />
@@ -26,16 +26,17 @@
 			</div>	
 			
 			<div class="row">
-				<div class="form-group col-md-1">
+				<div class="form-group col-md-2">
 					<label for="nome">Status:</label>
-					<form:select items="${selectDeStatus}"  length="30" path="status" />
+					<form:select class="form-control" items="${selectDeStatus}"  length="30" path="status" />
 				</div>
 			</div>
 		   
 		   <div class="row">
 				<div class="form-group col-md-4">
 					<label for="nome"></label>
-					<input type="submit" value="enviar" class="btn btn-primary">
+					<input type="submit" value="Enviar" class="btn btn-primary">
+					<a href="/Restaurante/categoria/listar" class="btn btn-primary">Voltar</a>
 				</div>
 		   </div>	
 		   
