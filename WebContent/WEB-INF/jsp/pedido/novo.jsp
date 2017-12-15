@@ -37,15 +37,15 @@
 				</div>
 				
 				<div class="row">
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-2">
 						<label for="nome">Cardapio:</label>
 						<form:select class="form-control"  items="${selectCardapio}" length="30" path="cardapio.id" />
 					</div>
 				</div>
 				<div class="row">
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-2">
 						<label for="nome">Quantidade:</label>
-						<form:input cssStyle="width:250px" maxlength="30"
+						<form:input cssStyle="width:50px" maxlength="30"
 							path="quantidade" size="30" class="form-control" />
 					</div>
 				</div>
@@ -95,15 +95,15 @@
 
 				
 				<div class="row">
-					<div class="form-group col-md-1">
+					<div class="form-group col-md-3">
 						<label for="nome"></label> 
 						<input type="submit" value="Finalizar Pedido" class="btn btn-primary">
+						<a href="/Restaurante/pedido/listar" class="btn btn-primary">Voltar</a>
 					</div>
 				</div>
 
 
 			</form:form>
-						<a href="/Restaurante/pedido/listar" class="btn btn-primary">Voltar</a>
 
 	
 

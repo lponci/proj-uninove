@@ -26,7 +26,7 @@
 					</div>
 					<div class="form-group col-md-3">
 						<label for="senha">Senha:</label>
-						<form:input cssStyle="width:250px" maxlength="30" path="senha"
+						<form:input type="password" cssStyle="width:250px" maxlength="30" path="senha"
 							size="30" class="form-control" />
 					</div>
 				</div>

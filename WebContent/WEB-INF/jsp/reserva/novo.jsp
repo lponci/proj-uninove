@@ -43,12 +43,12 @@
 			<div class="row">	
 				<div class="form-group col-md-2">
 					<label for="nome">Data Inicial:</label>
-					<form:input cssStyle="width:150px" maxlength="30" path="dataInicial" size="30" class="form-control"/>
+					<form:input cssStyle="width:150px" maxlength="30" path="dataInicial" size="30" class="form-control" placeholder="dd/mm/yyyy"/>
 				</div>
 			
 				<div class="form-group col-md-2">
 					<label for="nome">Data Final:</label>
-					<form:input cssStyle="width:150px" maxlength="30" path="dataFinal" size="30" class="form-control"/>
+					<form:input cssStyle="width:150px" maxlength="30" path="dataFinal" size="30" class="form-control" placeholder="dd/mm/yyyy"/>
 				</div>
 			</div>
 				
@@ -63,6 +63,7 @@
 		   
 			
 		</form:form>
+		
 
 	</div>
 </div>

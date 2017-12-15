@@ -6,7 +6,7 @@
 
 <c:import url="${request.contextPath}/menu" />
 
-<div class="container">
+<div class="container" id="divName">
 
 	<c:url var="url" value="/categoria/filtrar" />
 	<form:form action="${url}" method="get" modelAttribute="filtro">
@@ -40,7 +40,7 @@
 		</c:forEach>
 	</table>
 	<c:url var="url" value="/categoria/novo" />
-	<a href="${url}" class="btn btn-primary">Novo</a>
+	<a href="${url}" class="btn btn-primary" >Novo</a>
 	<script>
 		function findSelection(field) {
 			var test = document.getElementsByName(field);
@@ -90,31 +90,57 @@
 		
 		function desativarReg() {
 			var rb = findSelection("radioButton");
-			alert(rb);
+			//alert(rb);
 
 			var status = document.getElementById("catStatus").innerText;
 			if (status === 'Ativo') {
+				swal({
+						text:"Registro inativado com sucesso!", 
+						icon : "success",
+						buttons : false,
+						timer: 1500
+						}).then((inativar)=>
+				{
 				var updateUrl = "/Restaurante/categoria/" + rb + "/desativar";
 				window.location.href = updateUrl;
-				alert("URL 1: " + updateUrl);
 				return false;
+				})
 			} else{
-				alert("Registro inativo!");
+				swal({
+					text:"Registro já inativo!", 
+					icon : "error",
+					buttons : false,
+					timer: 1500,
+					})
 				return false;
 			}
 		}
 		function ativarReg() {
-			var t = document.getElementById("tname");
-			var trs = t.getElementsByTagName("tr");
-			var tds = null;
+			var rb = findSelection("radioButton");
+			//alert(rb);
 
-			for (var i=0; i<trs.length; i++)
-			{
-			    tds = trs[i].getElementsByTagName("td");
-			    for (var n=0; n<trs.length;n++)
-			    {
-			        tds[n].onclick=function() { alert(this.id); }
-			    }
+			var status = document.getElementById("catStatus").innerText;
+			if (status !== 'Ativo') {
+				swal({
+				text:"Registro ativado com sucesso!", 
+				icon : "success",
+				buttons : false,
+				timer: 1500
+				}).then((ativar)=>
+		{
+				var updateUrl = "/Restaurante/categoria/" + rb + "/ativar";
+				window.location.href = updateUrl;
+				return false;
+		})
+			} else{
+				swal({
+					text:"Registro já ativo!", 
+					icon : "error",
+					buttons : false,
+					timer: 1500,
+					})
+				
+				return false;
 			}
 		}
 	</script>
@@ -122,7 +148,8 @@
 	<c:url var="url" value="/categoria/${categoria.id}" />
 	<a href="" onclick="return updateForm()" class="btn btn-primary">Atualizar</a>
 	<button onclick="return removeForm()" class="btn btn-danger">Deletar</button>
-	<a href="" onclick="return ativarReg()" class="btn btn-primary">Ativar</a>
-	<a href="" onclick="return desativarReg()" class="btn btn-primary">Desativar</a>
+	<button onclick="return ativarReg()" class="btn btn-primary">Ativar</button>
+	<button onclick="return desativarReg()" class="btn btn-primary">Desativar</button>
 	
+
 </div>

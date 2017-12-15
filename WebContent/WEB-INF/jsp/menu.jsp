@@ -18,8 +18,7 @@
 
   <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
   <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet'>
-	
-
+  
 </head>
 <body>
 	<script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
@@ -59,7 +58,7 @@
         <li><a href="<c:url value='/delivery/listar' />">Delivery</a></li>
       </ul>
       
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right ">
         <li><a href="<c:url value='/logout' />">Sair</a></li>
       </ul>
  
